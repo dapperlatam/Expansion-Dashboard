@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dapper · Expansión LATAM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+/* ── Reset & base ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple:       #5723F5;
+  --purple-light: #EEEDFE;
+  --purple-mid:   #AFA9EC;
+  --purple-dark:  #3C3489;
+  --green:        #5DCAA5;
+  --green-light:  #e6fdf0;
+  --green-dark:   #0F6E56;
+  --amber:        #FAC775;
+  --amber-light:  #FAEEDA;
+  --amber-dark:   #854F0B;
+  --gray-50:      #F8F8F6;
+  --gray-100:     #F1EFE8;
+  --gray-200:     #D3D1C7;
+  --gray-400:     #888780;
+  --gray-600:     #5F5E5A;
+  --gray-800:     #2C2C2A;
+  --white:        #FFFFFF;
+  --text:         #1A1A18;
+  --text-muted:   #5F5E5A;
+  --border:       rgba(0,0,0,0.08);
+  --border-med:   rgba(0,0,0,0.13);
+  --radius:       10px;
+  --radius-lg:    14px;
+  --shadow:       0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--gray-50);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout ─────────────────────────────────────────────── */
+.page { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark { display: flex; align-items: center; gap: 3px; }
+.logo-bar1 { width: 7px; height: 30px; background: var(--purple); border-radius: 2px; }
+.logo-bar2 { width: 16px; height: 30px; background: var(--purple); border-radius: 2px 9px 9px 2px; }
+.logo-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header-updated {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.badge-live { background: var(--green-light); color: var(--green-dark); border: 1px solid var(--green); }
+
+/* ── Section titles ─────────────────────────────────────── */
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* ── KPI strip ──────────────────────────────────────────── */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.kpi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+}
+.kpi-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.kpi-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+.kpi-value.accent { color: var(--purple); }
+.kpi-sub { font-size: 12px; color: var(--text-muted); margin-top: 5px; }
+
+/* ── Progress bar ───────────────────────────────────────── */
+.goal-bar-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow);
+}
+.goal-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+.goal-bar-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+.goal-bar-pct {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--purple);
+}
+.goal-track {
+  height: 10px;
+  background: var(--gray-100);
+  border-radius: 5px;
+  overflow: visible;
+  position: relative;
+}
+.goal-fill {
+  height: 100%;
+  background: var(--purple);
+  border-radius: 5px;
+  position: relative;
+  transition: width 1s cubic-bezier(.4,0,.2,1);
+}
+.goal-dot {
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  width: 16px;
+  height: 16px;
+  background: var(--purple);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--purple);
+}
+.goal-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.goal-label { font-size: 12px; color: var(--text-muted); }
+.goal-label.current { color: var(--purple); font-weight: 500; }
+
+/* ── Two-col layout ─────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  margin-bottom: 36px;
+  align-items: start;
+}
+
+/* ── Map ────────────────────────────────────────────────── */
+.map-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+#map-svg { width: 100%; height: auto; display: block; }
+.country-path { transition: opacity .15s; cursor: pointer; stroke: #fff; stroke-width: .5; }
+.country-path:hover { opacity: .75; }
+.country-path.prod    { fill: #5DCAA5; }
+.country-path.building { fill: #5723F5; }
+.country-path.disc-done { fill: #AFA9EC; }
+.country-path.disc-pending { fill: #FAC775; }
+.country-path.other  { fill: #D3D1C7; }
+
+/* Tooltip */
+#map-tooltip {
+  position: fixed;
+  background: var(--white);
+  border: 1px solid var(--border-med);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 12px;
+  pointer-events: none;
+  display: none;
+  min-width: 180px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+.tt-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.tt-row { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 3px; color: var(--text-muted); }
+.tt-val { color: var(--text); font-weight: 500; }
+.tt-note { font-size: 11px; color: var(--text-muted); margin-top: 6px; border-top: 1px solid var(--border); padding-top: 6px; }
+
+/* ── Pipeline ───────────────────────────────────────────── */
+.pipeline-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.pipe-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--border);
+}
+.pipe-group-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.pipe-group-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.pipe-group-count {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 20px;
+  margin-left: auto;
+}
+.pipe-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.pipe-row:last-child { border-bottom: none; }
+.pipe-flag { font-size: 17px; flex-shrink: 0; width: 24px; text-align: center; }
+.pipe-info { flex: 1; min-width: 0; }
+.pipe-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.pipe-detail { font-size: 11px; color: var(--text-muted); }
+.pipe-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+.pipe-stage { font-size: 10px; font-weight: 500; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
+.s-prod       { background: var(--green-light); color: var(--green-dark); }
+.s-building   { background: var(--purple-light); color: var(--purple-dark); }
+.s-disc-done  { background: #E1F5EE; color: #085041; }
+.s-disc-pend  { background: var(--amber-light); color: var(--amber-dark); }
+.pipe-prog { width: 72px; }
+.pipe-prog-track { height: 4px; background: var(--gray-100); border-radius: 2px; overflow: hidden; }
+.pipe-prog-fill { height: 100%; border-radius: 2px; }
+.pipe-prog-label { font-size: 10px; color: var(--text-muted); text-align: right; margin-top: 1px; }
+
+/* ── Country cards ──────────────────────────────────────── */
+.cards-section { margin-bottom: 36px; }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.country-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.card-flag { font-size: 26px; margin-right: 10px; line-height: 1; }
+.card-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; }
+.card-eng { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.card-status-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.milestones { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+.ms-row { display: flex; align-items: center; gap: 8px; }
+.ms-name { font-size: 11px; color: var(--text-muted); width: 90px; flex-shrink: 0; }
+.ms-track { flex: 1; height: 5px; background: var(--gray-100); border-radius: 3px; overflow: hidden; }
+.ms-fill { height: 100%; border-radius: 3px; }
+.ms-pct { font-size: 11px; color: var(--text); font-weight: 500; width: 30px; text-align: right; }
+.card-health {
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+.health-on    { background: var(--green-light); color: var(--green-dark); }
+.health-risk  { background: var(--amber-light); color: var(--amber-dark); }
+.health-off   { background: #FCEBEB; color: #A32D2D; }
+.card-eta { font-size: 11px; color: var(--text-muted); }
+.card-eta strong { color: var(--text); }
+.card-pct-big {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--purple);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+/* ── Feed ───────────────────────────────────────────────── */
+.feed-section { margin-bottom: 36px; }
+.feed-list {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.feed-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.feed-item:last-child { border-bottom: none; }
+.feed-indicator { flex-shrink: 0; margin-top: 5px; }
+.feed-dot { width: 8px; height: 8px; border-radius: 50%; }
+.feed-body { flex: 1; }
+.feed-flag { font-size: 14px; margin-right: 5px; }
+.feed-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+.feed-meta { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+/* ── Footer ─────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-brand { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.footer-sub { font-size: 12px; color: var(--text-muted); }
+.footer-definitions { max-width: 560px; }
+.footer-def-title { font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.footer-def-list { display: flex; flex-direction: column; gap: 4px; }
+.footer-def-row { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+.footer-def-row strong { color: var(--text); font-weight: 500; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .cards-grid { grid-template-columns: 1fr; }
+  .site-footer { flex-direction: column; }
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp .45s ease both; }
+.delay-1 { animation-delay: .05s; }
+.delay-2 { animation-delay: .10s; }
+.delay-3 { animation-delay: .15s; }
+.delay-4 { animation-delay: .20s; }
+</style>
+</head>
+<body>
+
+<div id="map-tooltip">
+  <div class="tt-name" id="tt-name"></div>
+  <div class="tt-row"><span>Estado</span><span class="tt-val" id="tt-status"></span></div>
+  <div class="tt-row" id="tt-pct-row"><span>Avance</span><span class="tt-val" id="tt-pct"></span></div>
+  <div class="tt-row" id="tt-eta-row"><span>ETA</span><span class="tt-val" id="tt-eta"></span></div>
+  <div class="tt-row"><span>Responsable</span><span class="tt-val" id="tt-eng"></span></div>
+  <div class="tt-note" id="tt-note"></div>
+</div>
+
+<div class="page">
+
+  <!-- Header -->
+  <header class="site-header fade-up">
+    <a class="logo" href="#">
+      <div class="logo-mark">
+        <div class="logo-bar1"></div>
+        <div class="logo-bar2"></div>
+      </div>
+      <span class="logo-name">Dapper</span>
+    </a>
+    <div class="header-meta">
+      <span class="header-updated" id="last-updated-label">Actualizado —</span>
+      <span class="badge badge-live">Expansión LATAM</span>
+    </div>
+  </header>
+
+  <!-- KPI strip -->
+  <div class="kpi-strip">
+    <div class="kpi-card fade-up delay-1">
+      <div class="kpi-label">En producción</div>
+      <div class="kpi-value accent" id="kpi-prod">—</div>
+      <div class="kpi-sub" id="kpi-prod-sub">de 10 países</div>
+    </div>
+    <div class="kpi-card fade-up delay-2">
+      <div class="kpi-label">En construcción</div>
+      <div class="kpi-value" id="kpi-building">—</div>
+      <div class="kpi-sub" id="kpi-building-names"></div>
+    </div>
+    <div class="kpi-card fade-up delay-3">
+      <div class="kpi-label">Avance hacia meta</div>
+      <div class="kpi-value accent" id="kpi-pct">—</div>
+      <div class="kpi-sub" id="kpi-pct-sub"></div>
+    </div>
+    <div class="kpi-card fade-up delay-4">
+      <div class="kpi-label">Deadline meta</div>
+      <div class="kpi-value" style="font-size:22px;padding-top:4px" id="kpi-deadline">—</div>
+      <div class="kpi-sub" id="kpi-days-left"></div>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="goal-bar-wrap fade-up">
+    <div class="goal-bar-header">
+      <span class="goal-bar-title">Progreso hacia los 10 países en producción</span>
+      <span class="goal-bar-pct" id="goal-pct-label">—</span>
+    </div>
+    <div class="goal-track">
+      <div class="goal-fill" id="goal-fill" style="width:0%">
+        <div class="goal-dot"></div>
+      </div>
+    </div>
+    <div class="goal-labels">
+      <span class="goal-label">0 países</span>
+      <span class="goal-label current" id="goal-current-label">▲ hoy</span>
+      <span class="goal-label">10 países</span>
+    </div>
+  </div>
+
+  <!-- Map + Pipeline -->
+  <div class="two-col">
+
+    <div>
+      <div class="section-label">Mapa regional</div>
+      <div class="map-card">
+        <div class="map-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#5DCAA5"></div>En producción</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#5723F5"></div>En construcción</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#AFA9EC"></div>Discovery completo</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#FAC775"></div>Discovery pendiente</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#D3D1C7"></div>Sin scope</div>
+        </div>
+        <svg id="map-svg" viewBox="0 0 960 960" aria-label="Mapa de América Latina mostrando estado de expansión por país"></svg>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Pipeline de expansión</div>
+      <div class="pipeline-card" id="pipeline-container"></div>
+    </div>
+
+  </div>
+
+  <!-- Country cards (building only) -->
+  <div class="cards-section" id="building-section">
+    <div class="section-label">Países en construcción activa</div>
+    <div class="cards-grid" id="cards-grid"></div>
+  </div>
+
+  <!-- Feed -->
+  <div class="feed-section">
+    <div class="section-label">Últimas actualizaciones</div>
+    <div class="feed-list" id="feed-list"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div>
+      <div class="footer-brand">Dapper · Where tech and public affairs meet</div>
+      <div class="footer-sub">Dashboard de Expansión LATAM · Equipo de Operaciones</div>
+    </div>
+    <div class="footer-definitions">
+      <div class="footer-def-title">Definiciones</div>
+      <div class="footer-def-list">
+        <div class="footer-def-row"><strong>ETA (Estimated Time of Arrival)</strong> — Fecha estimada en que el país estará listo para salir a producción. Se calcula en base a las fechas objetivo definidas en Linear y puede ajustarse según el avance real del sprint.</div>
+        <div class="footer-def-row"><strong>Avance (%)</strong> — Promedio del porcentaje de completitud de los 4 milestones de producción (Discovery, Congreso, Gobierno, Servicios Transversales). Calculado automáticamente por Linear.</div>
+        <div class="footer-def-row"><strong>Discovery</strong> — Evaluación de viabilidad técnica y levantamiento de fuentes de información disponibles antes de aprobar la construcción del país.</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- D3 + TopoJSON -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+// ── ISO numeric → alpha-2 for LATAM countries ─────────────────
+const ISO_NUM = {
+  "32":"AR","68":"BO","76":"BR","152":"CL","170":"CO",
+  "188":"CR","192":"CU","214":"DO","218":"EC","222":"SV",
+  "320":"GT","328":"GY","340":"HN","484":"MX","558":"NI",
+  "591":"PA","600":"PY","604":"PE","630":"PR","858":"UY","862":"VE"
+};
+
+// ── Status config ─────────────────────────────────────────────
+const STATUS_CFG = {
+  production:        { label: "En producción",       cls: "prod",         color: "#5DCAA5" },
+  building:          { label: "En construcción",     cls: "building",     color: "#5723F5" },
+  discovery_done:    { label: "Discovery completo",  cls: "disc-done",    color: "#AFA9EC" },
+  discovery_pending: { label: "Discovery pendiente", cls: "disc-pending", color: "#FAC775" },
+  planned:           { label: "Planificado",         cls: "other",        color: "#D3D1C7" },
+};
+
+function statusCls(s) { return STATUS_CFG[s]?.cls || "other"; }
+function statusLabel(s) { return STATUS_CFG[s]?.label || s; }
+function statusColor(s) { return STATUS_CFG[s]?.color || "#D3D1C7"; }
+
+function fmtDate(iso) {
+  if (!iso) return "—";
+  const [y,m,d] = iso.split("-");
+  const months = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+}
+
+function daysLeft(iso) {
+  if (!iso) return null;
+  const diff = new Date(iso) - new Date();
+  return Math.ceil(diff / 86400000);
+}
+
+function healthLabel(h) {
+  if (h === "onTrack")  return "On track";
+  if (h === "atRisk")   return "En riesgo";
+  if (h === "offTrack") return "Con retraso";
+  return "";
+}
+function healthCls(h) {
+  if (h === "onTrack")  return "health-on";
+  if (h === "atRisk")   return "health-risk";
+  if (h === "offTrack") return "health-off";
+  return "health-on";
+}
+
+// ── Load data & render ────────────────────────────────────────
+async function init() {
+  const data = await fetch("data.json").then(r => r.json());
+  const byId = {};
+  data.countries.forEach(c => { byId[c.id] = c; });
+
+  renderKPIs(data);
+  renderGoalBar(data);
+  renderMap(data, byId);
+  renderPipeline(data);
+  renderCards(data);
+  renderFeed(data);
+}
+
+// ── KPIs ──────────────────────────────────────────────────────
+function renderKPIs(data) {
+  const prod     = data.countries.filter(c => c.status === "production");
+  const building = data.countries.filter(c => c.status === "building");
+  const goal     = data.meta.goal;
+  const pct      = Math.round((prod.length / goal) * 100);
+  const dl       = daysLeft(data.meta.deadline);
+
+  document.getElementById("last-updated-label").textContent =
+    "Actualizado " + fmtDate(data.meta.last_updated);
+
+  document.getElementById("kpi-prod").textContent = prod.length;
+  document.getElementById("kpi-prod-sub").textContent = `de ${goal} países`;
+
+  document.getElementById("kpi-building").textContent = building.length;
+  document.getElementById("kpi-building-names").textContent =
+    building.map(c => c.name).join(" · ");
+
+  document.getElementById("kpi-pct").textContent = pct + "%";
+  document.getElementById("kpi-pct-sub").textContent =
+    `${prod.length} de ${goal} completados`;
+
+  const dlParts = data.meta.deadline.split("-");
+  document.getElementById("kpi-deadline").textContent =
+    `${dlParts[2] === "30" ? "Jun 30" : fmtDate(data.meta.deadline)}`;
+  document.getElementById("kpi-days-left").textContent =
+    dl > 0 ? `${dl} días restantes` : "Fecha alcanzada";
+}
+
+// ── Goal bar ─────────────────────────────────────────────────
+function renderGoalBar(data) {
+  const prod = data.countries.filter(c => c.status === "production").length;
+  const pct  = (prod / data.meta.goal) * 100;
+  document.getElementById("goal-fill").style.width = pct + "%";
+  document.getElementById("goal-pct-label").textContent = Math.round(pct) + "% completado";
+  document.getElementById("goal-current-label").textContent = `▲ hoy (${prod})`;
+  document.getElementById("goal-current-label").style.marginLeft =
+    `calc(${pct}% - 40px)`;
+}
+
+// ── Map ───────────────────────────────────────────────────────
+function renderMap(data, byId) {
+  const svg    = d3.select("#map-svg");
+  const width  = 960;
+  const height = 960;
+  const tooltip = document.getElementById("map-tooltip");
+
+  const projection = d3.geoMercator()
+    .center([-60, -15])
+    .scale(600)
+    .translate([width / 2, height / 2]);
+
+  const path = d3.geoPath(projection);
+
+  d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(world => {
+    const features = topojson.feature(world, world.objects.countries).features;
+
+    svg.selectAll("path")
+      .data(features)
+      .join("path")
+      .attr("class", d => {
+        const alpha = ISO_NUM[String(d.id)];
+        const country = alpha ? byId[alpha] : null;
+        if (!country) return "country-path other";
+        return `country-path ${statusCls(country.status)}`;
+      })
+      .attr("d", path)
+      .on("mousemove", (event, d) => {
+        const alpha = ISO_NUM[String(d.id)];
+        const c = alpha ? byId[alpha] : null;
+        if (!c || c.status === "other") { tooltip.style.display = "none"; return; }
+
+        document.getElementById("tt-name").textContent = c.flag + " " + c.name;
+        document.getElementById("tt-status").textContent = statusLabel(c.status);
+        document.getElementById("tt-status").style.color = statusColor(c.status);
+
+        const pctRow = document.getElementById("tt-pct-row");
+        if (c.progress > 0 || c.status === "building") {
+          pctRow.style.display = "flex";
+          document.getElementById("tt-pct").textContent = c.progress + "%";
+        } else {
+          pctRow.style.display = "none";
+        }
+        const etaRow = document.getElementById("tt-eta-row");
+        if (c.eta) {
+          etaRow.style.display = "flex";
+          document.getElementById("tt-eta").textContent = fmtDate(c.eta);
+        } else {
+          etaRow.style.display = "none";
+        }
+        document.getElementById("tt-eng").textContent = c.engineer;
+        document.getElementById("tt-note").textContent = c.last_update;
+
+        tooltip.style.display = "block";
+        tooltip.style.left = (event.clientX + 14) + "px";
+        tooltip.style.top  = (event.clientY - 10) + "px";
+      })
+      .on("mouseleave", () => { tooltip.style.display = "none"; });
+  });
+}
+
+// ── Pipeline ──────────────────────────────────────────────────
+function renderPipeline(data) {
+  const groups = [
+    { status: "production",        label: "En producción",       countLabel: true },
+    { status: "building",          label: "En construcción",     countLabel: true },
+    { status: "discovery_done",    label: "Discovery completo",  countLabel: true },
+    { status: "discovery_pending", label: "Discovery pendiente", countLabel: true },
+  ];
+
+  const container = document.getElementById("pipeline-container");
+  const cfg = STATUS_CFG;
+
+  groups.forEach(g => {
+    const countries = data.countries.filter(c => c.status === g.status);
+    if (!countries.length) return;
+
+    const header = document.createElement("div");
+    header.className = "pipe-group-header";
+    header.innerHTML = `
+      <div class="pipe-group-dot" style="background:${cfg[g.status].color}"></div>
+      <span class="pipe-group-label" style="color:${cfg[g.status].color}">${g.label}</span>
+      <span class="pipe-group-count" style="background:${cfg[g.status].color}22;color:${cfg[g.status].color}">${countries.length}</span>
+    `;
+    container.appendChild(header);
+
+    countries.forEach(c => {
+      const row = document.createElement("div");
+      row.className = "pipe-row";
+
+      let progHtml = "";
+      if (c.status === "building") {
+        progHtml = `
+          <div class="pipe-prog">
+            <div class="pipe-prog-track">
+              <div class="pipe-prog-fill" style="width:${c.progress}%;background:${cfg[c.status].color}"></div>
+            </div>
+            <div class="pipe-prog-label">${c.progress}% completado</div>
+          </div>`;
+      }
+
+      const etaStr = c.eta ? `ETA ${fmtDate(c.eta)} · ` : "";
+
+      row.innerHTML = `
+        <span class="pipe-flag">${c.flag}</span>
+        <div class="pipe-info">
+          <div class="pipe-name">${c.name}</div>
+          <div class="pipe-detail">${etaStr}${c.engineer}</div>
+        </div>
+        <div class="pipe-right">
+          <span class="pipe-stage s-${cfg[g.status].cls}">${g.label}</span>
+          ${progHtml}
+        </div>
+      `;
+      container.appendChild(row);
+    });
+  });
+}
+
+// ── Country cards (building) ──────────────────────────────────
+function renderCards(data) {
+  const building = data.countries.filter(c => c.status === "building");
+  if (!building.length) {
+    document.getElementById("building-section").style.display = "none";
+    return;
+  }
+  const grid = document.getElementById("cards-grid");
+  building.forEach(c => {
+    const card = document.createElement("div");
+    card.className = "country-card";
+
+    const msHtml = (c.milestones || []).map(m => `
+      <div class="ms-row">
+        <span class="ms-name">${m.name}</span>
+        <div class="ms-track"><div class="ms-fill" style="width:${m.progress}%;background:${m.progress===100?'#5DCAA5':'#5723F5'}"></div></div>
+        <span class="ms-pct">${m.progress}%</span>
+      </div>`).join("");
+
+    const hLabel = healthLabel(c.health);
+    const hCls   = healthCls(c.health);
+
+    card.innerHTML = `
+      <div class="card-head">
+        <div style="display:flex;align-items:center">
+          <span class="card-flag">${c.flag}</span>
+          <div>
+            <div class="card-title">${c.name}</div>
+            <div class="card-eng">${c.engineer}</div>
+          </div>
+        </div>
+        <span class="card-status-badge s-building">Construcción</span>
+      </div>
+      <div class="card-pct-big">${c.progress}%</div>
+      <div class="milestones">${msHtml}</div>
+      ${hLabel ? `<div class="card-health ${hCls}">${hLabel}</div>` : ""}
+      <div class="card-eta">ETA: <strong>${fmtDate(c.eta)}</strong></div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ── Feed ──────────────────────────────────────────────────────
+function renderFeed(data) {
+  const list = document.getElementById("feed-list");
+  (data.feed || []).forEach(item => {
+    const el = document.createElement("div");
+    el.className = "feed-item";
+    const color = item.health === "onTrack" ? "#5DCAA5"
+                : item.health === "atRisk"  ? "#FAC775" : "#E24B4A";
+    el.innerHTML = `
+      <div class="feed-indicator"><div class="feed-dot" style="background:${color}"></div></div>
+      <div class="feed-body">
+        <div class="feed-text"><span class="feed-flag">${item.flag}</span>${item.text}</div>
+        <div class="feed-meta">${item.country} · ${fmtDate(item.date)}</div>
+      </div>
+    `;
+    list.appendChild(el);
+  });
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+init().catch(console.error);
+</script>
+</body>
+</html>
