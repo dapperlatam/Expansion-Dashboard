@@ -561,10 +561,16 @@ body {
 <script>
 // ── ISO numeric → alpha-2 for LATAM countries ─────────────────
 const ISO_NUM = {
+  // Sin cero inicial (como los guarda world-atlas como integer)
   "32":"AR","68":"BO","76":"BR","152":"CL","170":"CO",
   "188":"CR","192":"CU","214":"DO","218":"EC","222":"SV",
   "320":"GT","328":"GY","340":"HN","484":"MX","558":"NI",
-  "591":"PA","600":"PY","604":"PE","630":"PR","858":"UY","862":"VE"
+  "591":"PA","600":"PY","604":"PE","630":"PR","858":"UY","862":"VE",
+  // Con cero inicial (fallback por si world-atlas los guarda como string con padding)
+  "032":"AR","068":"BO","076":"BR",
+  "188":"CR","214":"DO","218":"EC","222":"SV",
+  "320":"GT","328":"GY","340":"HN",
+  "558":"NI","591":"PA","600":"PY","604":"PE","630":"PR","858":"UY","862":"VE"
 };
 
 // ── Status config ─────────────────────────────────────────────
@@ -676,6 +682,13 @@ function renderMap(data, byId) {
 
   d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(world => {
     const features = topojson.feature(world, world.objects.countries).features;
+
+    // Debug temporal — abre DevTools Console para ver IDs reales
+    const LATAM_NUM = new Set([32,68,76,152,170,188,214,218,222,320,328,340,484,558,591,604,862]);
+    features.filter(d => LATAM_NUM.has(Number(d.id))).forEach(d => {
+      const alpha = ISO_NUM[String(d.id)];
+      console.log('[map] id=' + d.id + ' -> ' + alpha + ' -> ' + (byId[alpha]?.name || 'NO MATCH') + ' (' + (byId[alpha]?.status || '-') + ')');
+    });
 
     svg.selectAll("path")
       .data(features)
