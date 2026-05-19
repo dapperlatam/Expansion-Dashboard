@@ -7,156 +7,278 @@
   },
   "countries": [
     {
-      "id": "CO", "name": "Colombia", "flag": "🇨🇴",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2022-01-01",
+      "id": "CO",
+      "name": "Colombia",
+      "flag": "🇨🇴",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2022-01-01",
       "engineer": "Equipo Dapper",
       "linear_url": null,
       "last_update": "País base de Dapper",
       "milestones": []
     },
     {
-      "id": "PE", "name": "Perú", "flag": "🇵🇪",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2025-11-14",
+      "id": "PE",
+      "name": "Perú",
+      "flag": "🇵🇪",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2025-11-14",
       "engineer": "Equipo Dapper",
       "linear_url": null,
       "last_update": "En producción",
       "milestones": []
     },
     {
-      "id": "DO", "name": "Rep. Dominicana", "flag": "🇩🇴",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2025-01-01",
+      "id": "DO",
+      "name": "Rep. Dominicana",
+      "flag": "🇩🇴",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2025-01-01",
       "engineer": "Equipo Dapper",
       "linear_url": null,
       "last_update": "En producción",
       "milestones": []
     },
     {
-      "id": "MX", "name": "México", "flag": "🇲🇽",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2026-01-13",
+      "id": "MX",
+      "name": "México",
+      "flag": "🇲🇽",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2026-01-13",
       "engineer": "Equipo Dapper",
       "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-mexico-cf6ffefd4dc4",
       "last_update": "Completado ene 2026",
       "milestones": []
     },
     {
-      "id": "CL", "name": "Chile", "flag": "🇨🇱",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2026-01-01",
+      "id": "CL",
+      "name": "Chile",
+      "flag": "🇨🇱",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2026-01-01",
       "engineer": "Equipo Dapper",
       "linear_url": null,
       "last_update": "En producción",
       "milestones": []
     },
     {
-      "id": "BR", "name": "Brasil", "flag": "🇧🇷",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2026-05-18",
+      "id": "BR",
+      "name": "Brasil",
+      "flag": "🇧🇷",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2026-05-18",
       "engineer": "Equipo Dapper",
       "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-brazil-115f3b177be1",
       "last_update": "Completado may 2026",
       "milestones": []
     },
     {
-      "id": "AR", "name": "Argentina", "flag": "🇦🇷",
-      "status": "production", "progress": 100,
-      "eta": null, "completed_date": "2026-01-01",
+      "id": "AR",
+      "name": "Argentina",
+      "flag": "🇦🇷",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2026-01-01",
       "engineer": "Equipo Dapper",
       "linear_url": null,
       "last_update": "En producción",
       "milestones": []
     },
     {
-      "id": "EC", "name": "Ecuador", "flag": "🇪🇨",
-      "status": "building", "progress": 71,
-      "eta": "2026-06-10", "completed_date": null,
+      "id": "EC",
+      "name": "Ecuador",
+      "flag": "🇪🇨",
+      "status": "building",
+      "progress": 71,
+      "eta": "2026-06-10",
+      "completed_date": null,
       "engineer": "Alexa Amaguaya",
       "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-ecuador-632ec7c45916",
       "last_update": "Congreso 75% · Gobierno 54% · Transversales 75%. Sin bloqueos.",
       "health": "onTrack",
       "milestones": [
-        { "name": "Discovery", "progress": 100 },
-        { "name": "Congreso", "progress": 75 },
-        { "name": "Gobierno", "progress": 54 },
-        { "name": "Transversales", "progress": 75 }
+        {
+          "name": "Discovery",
+          "progress": 100
+        },
+        {
+          "name": "Congreso",
+          "progress": 75
+        },
+        {
+          "name": "Gobierno",
+          "progress": 54
+        },
+        {
+          "name": "Transversales",
+          "progress": 75
+        }
       ]
     },
     {
-      "id": "PA", "name": "Panamá", "flag": "🇵🇦",
-      "status": "building", "progress": 65,
-      "eta": "2026-06-10", "completed_date": null,
+      "id": "PA",
+      "name": "Panamá",
+      "flag": "🇵🇦",
+      "status": "building",
+      "progress": 65,
+      "eta": "2026-06-10",
+      "completed_date": null,
       "engineer": "Felipe Tejada",
       "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-panama-f8a17414526d",
       "last_update": "Gobierno 100% completo. Congreso 63%. Transversales en Sprint 17.",
       "health": "onTrack",
       "milestones": [
-        { "name": "Discovery", "progress": 100 },
-        { "name": "Gobierno", "progress": 100 },
-        { "name": "Congreso", "progress": 63 },
-        { "name": "Transversales", "progress": 0 }
+        {
+          "name": "Discovery",
+          "progress": 100
+        },
+        {
+          "name": "Gobierno",
+          "progress": 100
+        },
+        {
+          "name": "Congreso",
+          "progress": 63
+        },
+        {
+          "name": "Transversales",
+          "progress": 0
+        }
       ]
     },
     {
-      "id": "CR", "name": "Costa Rica", "flag": "🇨🇷",
-      "status": "building", "progress": 13,
-      "eta": "2026-06-24", "completed_date": null,
+      "id": "CR",
+      "name": "Costa Rica",
+      "flag": "🇨🇷",
+      "status": "building",
+      "progress": 13,
+      "eta": "2026-06-24",
+      "completed_date": null,
       "engineer": "Alexa Amaguaya",
       "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-costa-rica-0a93dd2c2711",
       "last_update": "Discovery en progreso (67%). Construcción inicia próximamente.",
       "health": "onTrack",
       "milestones": [
-        { "name": "Discovery", "progress": 67 },
-        { "name": "Congreso", "progress": 0 },
-        { "name": "Gobierno", "progress": 0 },
-        { "name": "Transversales", "progress": 0 }
+        {
+          "name": "Discovery",
+          "progress": 67
+        },
+        {
+          "name": "Congreso",
+          "progress": 0
+        },
+        {
+          "name": "Gobierno",
+          "progress": 0
+        },
+        {
+          "name": "Transversales",
+          "progress": 0
+        }
       ]
     },
     {
-      "id": "GT", "name": "Guatemala", "flag": "🇬🇹",
-      "status": "discovery_done", "progress": 0,
-      "eta": "2026-07-06", "completed_date": null,
+      "id": "GT",
+      "name": "Guatemala",
+      "flag": "🇬🇹",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": "2026-07-06",
+      "completed_date": null,
       "engineer": "Felipe Tejada",
       "linear_url": null,
       "last_update": "Discovery completo. Construcción pendiente de inicio.",
       "milestones": []
     },
     {
-      "id": "BO", "name": "Bolivia", "flag": "🇧🇴",
-      "status": "discovery_done", "progress": 0,
-      "eta": null, "completed_date": null,
+      "id": "BO",
+      "name": "Bolivia",
+      "flag": "🇧🇴",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
       "engineer": "Por asignar",
       "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1092/discovery-bolivia",
       "last_update": "Discovery completado may 12, 2026 (DOPS-1092).",
       "milestones": []
     },
     {
-      "id": "SV", "name": "El Salvador", "flag": "🇸🇻",
-      "status": "discovery_done", "progress": 0,
-      "eta": null, "completed_date": null,
+      "id": "SV",
+      "name": "El Salvador",
+      "flag": "🇸🇻",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
       "engineer": "Por asignar",
       "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1093/discovery-el-salvador",
       "last_update": "Discovery completado may 12, 2026 (DOPS-1093).",
       "milestones": []
     },
     {
-      "id": "VE", "name": "Venezuela", "flag": "🇻🇪",
-      "status": "discovery_pending", "progress": 0,
-      "eta": null, "completed_date": null,
+      "id": "VE",
+      "name": "Venezuela",
+      "flag": "🇻🇪",
+      "status": "discovery_pending",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
       "engineer": "Wendy Sánchez",
       "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1094/discovery-venezuela",
       "last_update": "Discovery pendiente (DOPS-1094). En sprint actual.",
       "milestones": []
     },
     {
-      "id": "GY", "name": "Guyana", "flag": "🇬🇾",
-      "status": "discovery_pending", "progress": 0,
-      "eta": null, "completed_date": null,
+      "id": "GY",
+      "name": "Guyana",
+      "flag": "🇬🇾",
+      "status": "discovery_pending",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
       "engineer": "Wendy Sánchez",
       "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1095/discovery-guyana",
       "last_update": "Discovery pendiente (DOPS-1095). En sprint actual.",
+      "milestones": []
+    },
+    {
+      "id": "PY",
+      "name": "Paraguay",
+      "flag": "🇵🇾",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
+      "engineer": "Wendy Sánchez",
+      "linear_url": null,
+      "last_update": "Discovery completado. Sin issue en Linear aún.",
+      "milestones": []
+    },
+    {
+      "id": "UY",
+      "name": "Uruguay",
+      "flag": "🇺🇾",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
+      "engineer": "Wendy Sánchez",
+      "linear_url": null,
+      "last_update": "Discovery completado. Sin issue en Linear aún.",
       "milestones": []
     }
   ],
@@ -195,6 +317,68 @@
       "flag": "🇸🇻",
       "text": "Discovery completado (DOPS-1093). País listo para planificación de construcción.",
       "health": "onTrack"
+    }
+  ],
+  "not_studied": [
+    {
+      "id": "HN",
+      "name": "Honduras",
+      "flag": "🇭🇳",
+      "note": "Sin issues en Linear"
+    },
+    {
+      "id": "NI",
+      "name": "Nicaragua",
+      "flag": "🇳🇮",
+      "note": "Sin issues en Linear"
+    },
+    {
+      "id": "PR",
+      "name": "Puerto Rico",
+      "flag": "🇵🇷",
+      "note": "Sin issues en Linear"
+    },
+    {
+      "id": "TT",
+      "name": "Trinidad y Tobago",
+      "flag": "🇹🇹",
+      "note": "Descartado"
+    },
+    {
+      "id": "HT",
+      "name": "Haití",
+      "flag": "🇭🇹",
+      "note": "Descartado"
+    },
+    {
+      "id": "JM",
+      "name": "Jamaica",
+      "flag": "🇯🇲",
+      "note": "Descartado"
+    },
+    {
+      "id": "BB",
+      "name": "Barbados",
+      "flag": "🇧🇧",
+      "note": "Descartado"
+    },
+    {
+      "id": "SR",
+      "name": "Surinam",
+      "flag": "🇸🇷",
+      "note": "Descartado"
+    },
+    {
+      "id": "BZ",
+      "name": "Belice",
+      "flag": "🇧🇿",
+      "note": "Descartado"
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "flag": "🇨🇺",
+      "note": "Descartado"
     }
   ]
 }
