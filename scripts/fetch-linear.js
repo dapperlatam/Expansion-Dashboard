@@ -60,12 +60,12 @@ const DISCOVERY_ISSUES_QUERY = `
         team: { name: { eq: "Data & Operations" } }
         title: { containsIgnoreCase: "discovery" }
       }
-      orderBy: { field: updatedAt, direction: DESC }
+      orderBy: updatedAt
       first: 50
     ) {
       nodes {
         id identifier title url
-        status { type name }
+        state { type name }
         completedAt
       }
     }
@@ -204,7 +204,7 @@ async function main() {
     if (!country || projectIds.has(country.id)) continue;
     if (discoveryCountries.find(c => c.id === country.id)) continue;
 
-    const isDone = issue.status.type === "completed";
+    const isDone = issue.state.type === "completed";
     discoveryCountries.push({
       ...country,
       status:         isDone ? "discovery_done" : "discovery_pending",
