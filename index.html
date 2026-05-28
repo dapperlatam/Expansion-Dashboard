@@ -234,7 +234,7 @@ body {
 .country-path.disc-done { fill: #AFA9EC; }
 .country-path.disc-pending { fill: #FAC775; }
 .country-path.other  { fill: #D3D1C7; }
-.country-path.not-viable { fill: #F2C4C4; }
+.country-path.not-viable { fill: #E05050; opacity: 0.75; }
 
 /* Tooltip */
 #map-tooltip {
@@ -304,6 +304,7 @@ body {
 .s-building   { background: var(--purple-light); color: var(--purple-dark); }
 .s-disc-done  { background: #E1F5EE; color: #085041; }
 .s-disc-pend  { background: var(--amber-light); color: var(--amber-dark); }
+.s-not-viable { background: #FCEAEA; color: #A32D2D; border: 0.5px solid #E05050; }
 .pipe-mvp { font-size: 10px; color: #854F0B; background: #FAEEDA; border-radius: 4px; padding: 1px 7px; margin-top: 3px; display: inline-block; }
 .pipe-prog { width: 72px; }
 .pipe-prog-track { height: 4px; background: var(--gray-100); border-radius: 2px; overflow: hidden; }
@@ -541,7 +542,7 @@ body {
           <div class="legend-item"><div class="legend-dot" style="background:#AFA9EC"></div>Discovery completo</div>
           <div class="legend-item"><div class="legend-dot" style="background:#FAC775"></div>Discovery pendiente</div>
           <div class="legend-item"><div class="legend-dot" style="background:#D3D1C7"></div>Sin scope</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#E8A0A0"></div>No viable</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#E05050"></div>No viable</div>
         </div>
         <svg id="map-svg" viewBox="0 0 960 960" aria-label="Mapa de América Latina mostrando estado de expansión por país"></svg>
       </div>
@@ -616,6 +617,7 @@ const STATUS_CFG = {
   discovery_done:    { label: "Discovery completo",  cls: "disc-done",    color: "#AFA9EC" },
   discovery_pending: { label: "Discovery pendiente", cls: "disc-pending", color: "#FAC775" },
   planned:           { label: "Planificado",         cls: "other",        color: "#D3D1C7" },
+  not_viable:        { label: "No viable",           cls: "not-viable",   color: "#E05050" },
 };
 
 function statusCls(s) { return STATUS_CFG[s]?.cls || "other"; }
@@ -778,6 +780,7 @@ function renderPipeline(data) {
     { status: "building",          label: "En construcción",     countLabel: true },
     { status: "discovery_done",    label: "Discovery completo",  countLabel: true },
     { status: "discovery_pending", label: "Discovery pendiente", countLabel: true },
+    { status: "not_viable",        label: "No viable",           countLabel: true },
   ];
 
   const container = document.getElementById("pipeline-container");
@@ -922,7 +925,7 @@ function renderCoverage(data) {
     discovery_pending: '#FAC775',
     not_studied:       '#D3D1C7',
     discarded:         '#D3D1C7',
-    not_viable:        '#E8A0A0',
+    not_viable:        '#E05050',
   };
   const LABEL = {
     production:        'En producción',
