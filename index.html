@@ -234,6 +234,7 @@ body {
 .country-path.disc-done { fill: #AFA9EC; }
 .country-path.disc-pending { fill: #FAC775; }
 .country-path.other  { fill: #D3D1C7; }
+.country-path.not-viable { fill: #F2C4C4; }
 
 /* Tooltip */
 #map-tooltip {
@@ -540,6 +541,7 @@ body {
           <div class="legend-item"><div class="legend-dot" style="background:#AFA9EC"></div>Discovery completo</div>
           <div class="legend-item"><div class="legend-dot" style="background:#FAC775"></div>Discovery pendiente</div>
           <div class="legend-item"><div class="legend-dot" style="background:#D3D1C7"></div>Sin scope</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#E8A0A0"></div>No viable</div>
         </div>
         <svg id="map-svg" viewBox="0 0 960 960" aria-label="Mapa de América Latina mostrando estado de expansión por país"></svg>
       </div>
@@ -920,6 +922,7 @@ function renderCoverage(data) {
     discovery_pending: '#FAC775',
     not_studied:       '#D3D1C7',
     discarded:         '#D3D1C7',
+    not_viable:        '#E8A0A0',
   };
   const LABEL = {
     production:        'En producción',
@@ -928,6 +931,7 @@ function renderCoverage(data) {
     discovery_pending: 'Discovery pendiente',
     not_studied:       'Sin estudiar',
     discarded:         'Descartado',
+    not_viable:        'No viable',
   };
 
   allItems.forEach(c => {
