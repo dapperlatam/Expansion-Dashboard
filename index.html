@@ -303,6 +303,7 @@ body {
 .s-building   { background: var(--purple-light); color: var(--purple-dark); }
 .s-disc-done  { background: #E1F5EE; color: #085041; }
 .s-disc-pend  { background: var(--amber-light); color: var(--amber-dark); }
+.pipe-mvp { font-size: 10px; color: #854F0B; background: #FAEEDA; border-radius: 4px; padding: 1px 7px; margin-top: 3px; display: inline-block; }
 .pipe-prog { width: 72px; }
 .pipe-prog-track { height: 4px; background: var(--gray-100); border-radius: 2px; overflow: hidden; }
 .pipe-prog-fill { height: 100%; border-radius: 2px; }
@@ -595,7 +596,7 @@ body {
 // ── ISO numeric → alpha-2 for LATAM countries ─────────────────
 const ISO_NUM = {
   // Sin cero inicial (como los guarda world-atlas como integer)
-  "32":"AR","068":"BO","76":"BR","152":"CL","170":"CO",
+  "32":"AR","68":"BO","76":"BR","152":"CL","170":"CO",
   "188":"CR","192":"CU","214":"DO","218":"EC","222":"SV",
   "320":"GT","328":"GY","340":"HN","484":"MX","558":"NI",
   "591":"PA","600":"PY","604":"PE","630":"PR","858":"UY","862":"VE",
@@ -809,12 +810,14 @@ function renderPipeline(data) {
       }
 
       const etaStr = c.eta ? `ETA ${fmtDate(c.eta)} · ` : "";
+      const mvpNote = c.note_mvp ? `<div class="pipe-mvp">⚠ MVP reducido propuesto</div>` : "";
 
       row.innerHTML = `
         <span class="pipe-flag">${c.flag}</span>
         <div class="pipe-info">
           <div class="pipe-name">${c.name}</div>
           <div class="pipe-detail">${etaStr}${c.engineer}</div>
+          ${mvpNote}
         </div>
         <div class="pipe-right">
           <span class="pipe-stage s-${cfg[g.status].cls}">${g.label}</span>
