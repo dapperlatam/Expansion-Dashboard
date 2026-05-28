@@ -21,19 +21,6 @@
       "milestones": []
     },
     {
-      "id": "PE",
-      "name": "Perú",
-      "flag": "🇵🇪",
-      "status": "production",
-      "progress": 100,
-      "eta": null,
-      "completed_date": "2025-11-14",
-      "engineer": "Equipo Dapper",
-      "linear_url": null,
-      "last_update": "En producción.",
-      "milestones": []
-    },
-    {
       "id": "DO",
       "name": "Rep. Dominicana",
       "flag": "🇩🇴",
@@ -47,16 +34,16 @@
       "milestones": []
     },
     {
-      "id": "MX",
-      "name": "México",
-      "flag": "🇲🇽",
+      "id": "PE",
+      "name": "Perú",
+      "flag": "🇵🇪",
       "status": "production",
       "progress": 100,
       "eta": null,
-      "completed_date": "2026-01-13",
+      "completed_date": "2025-11-14",
       "engineer": "Equipo Dapper",
-      "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-mexico-cf6ffefd4dc4",
-      "last_update": "Completado ene 2026.",
+      "linear_url": null,
+      "last_update": "En producción.",
       "milestones": []
     },
     {
@@ -83,6 +70,19 @@
       "engineer": "Equipo Dapper",
       "linear_url": "https://linear.app/dapperlatam/project/argentina-data-enablement-b3dd2b8c8392",
       "last_update": "En producción.",
+      "milestones": []
+    },
+    {
+      "id": "MX",
+      "name": "México",
+      "flag": "🇲🇽",
+      "status": "production",
+      "progress": 100,
+      "eta": null,
+      "completed_date": "2026-01-13",
+      "engineer": "Equipo Dapper",
+      "linear_url": "https://linear.app/dapperlatam/project/dappers-expansion-into-mexico-cf6ffefd4dc4",
+      "last_update": "Completado ene 2026.",
       "milestones": []
     },
     {
@@ -205,6 +205,33 @@
       "milestones": []
     },
     {
+      "id": "UY",
+      "name": "Uruguay",
+      "flag": "🇺🇾",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
+      "engineer": "Wendy Sánchez",
+      "linear_url": null,
+      "last_update": "Discovery completado. Sin issue en Linear aún.",
+      "milestones": []
+    },
+    {
+      "id": "VE",
+      "name": "Venezuela",
+      "flag": "🇻🇪",
+      "status": "discovery_done",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
+      "engineer": "Wendy Sánchez",
+      "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1094/discovery-venezuela",
+      "last_update": "Discovery completado (DOPS-1094). Información legislativa limitada — se propone MVP reducido con componentes priorizados.",
+      "milestones": [],
+      "note_mvp": "Expertos y fuentes consultadas indican baja disponibilidad estructurada. Se propone MVP con alcance reducido."
+    },
+    {
       "id": "BO",
       "name": "Bolivia",
       "flag": "🇧🇴",
@@ -246,33 +273,6 @@
       "milestones": []
     },
     {
-      "id": "UY",
-      "name": "Uruguay",
-      "flag": "🇺🇾",
-      "status": "discovery_done",
-      "progress": 0,
-      "eta": null,
-      "completed_date": null,
-      "engineer": "Wendy Sánchez",
-      "linear_url": null,
-      "last_update": "Discovery completado. Sin issue en Linear aún.",
-      "milestones": []
-    },
-    {
-      "id": "VE",
-      "name": "Venezuela",
-      "flag": "🇻🇪",
-      "status": "discovery_done",
-      "progress": 0,
-      "eta": null,
-      "completed_date": null,
-      "engineer": "Wendy Sánchez",
-      "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1094/discovery-venezuela",
-      "last_update": "Discovery completado (DOPS-1094). Información legislativa limitada — se propone MVP reducido con componentes priorizados.",
-      "milestones": [],
-      "note_mvp": "Expertos y fuentes consultadas indican baja disponibilidad estructurada. Se propone MVP con alcance reducido."
-    },
-    {
       "id": "HN",
       "name": "Honduras",
       "flag": "🇭🇳",
@@ -297,15 +297,22 @@
       "linear_url": null,
       "last_update": "Próximo discovery. Sin issue en Linear aún.",
       "milestones": []
-    }
-  ],
-  "not_studied": [
+    },
     {
       "id": "GY",
       "name": "Guyana",
       "flag": "🇬🇾",
-      "note": "No viable"
-    },
+      "status": "not_viable",
+      "progress": 0,
+      "eta": null,
+      "completed_date": null,
+      "engineer": "Wendy Sánchez",
+      "linear_url": "https://linear.app/dapperlatam/issue/DOPS-1095/discovery-guyana",
+      "last_update": "Discovery completado (DOPS-1095). País descartado definitivamente — no viable para expansión.",
+      "milestones": []
+    }
+  ],
+  "not_studied": [
     {
       "id": "PR",
       "name": "Puerto Rico",
